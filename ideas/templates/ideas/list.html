@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="stats">
+    Łącznie pomysłów: {{ stats.total_ideas }} | Wszystkich głosów: {{ stats.total_votes }}
+</div>
+
+<div class="filters">
+    Sortuj: 
+    <a href="?sort=max">Najwięcej głosów</a> | 
+    <a href="?sort=min">Najmniej głosów</a>
+</div>
+
+<h2>Tablica Ogłoszeń</h2>
+{% for idea in ideas %}
+    <div class="card">
+        <h3><a href="{% url 'idea_detail' idea.pk %}" style="color: #63b3ed;">{{ idea.title }}</a></h3>
+        <p>{{ idea.description|truncatewords:20 }}</p>
+        <span>Głosy: <strong>{{ idea.num_votes }}</strong></span>
+    </div>
+{% empty %}
+    <p>Brak pomysłów. Bądź pierwszy!</p>
+{% endfor %}
+{% endblock %}

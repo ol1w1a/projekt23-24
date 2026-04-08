@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h1>{{ idea.title }}</h1>
+    <p style="font-size: 1.2em; line-height: 1.6;">{{ idea.description }}</p>
+    <hr style="border-color: #2d3748;">
+    
+    <div style="margin-top: 20px;">
+        <p>Aktualna liczba głosów: <strong>{{ idea.get_vote_count }}</strong></p>
+        
+        {% if can_vote %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">👍 Oddaj głos na ten projekt</button>
+            </form>
+        {% else %}
+            <p style="color: #4299e1; font-style: italic;">Dziękujemy! Już oddałeś głos na ten pomysł.</p>
+        {% endif %}
+    </div>
+</div>
+
+<a href="{% url 'idea_list' %}" class="btn" style="background: #4a5568; margin-top: 20px; display: inline-block;">
+    ⬅ Powrót do tablicy
+</a>
+{% endblock %}

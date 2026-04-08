@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tablica Pomysłów</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{% url 'idea_list' %}" class="btn">🏠 Home</a>
+            <a href="{% url 'idea_create' %}" class="btn">➕ Dodaj Pomysł</a>
+        </nav>
+        <hr>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
