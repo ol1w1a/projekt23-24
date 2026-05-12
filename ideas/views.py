@@ -14,7 +14,7 @@ def idea_list(request):
     elif sort == 'max':
         ideas = ideas.order_by('-num_votes')
     else:
-        # Najnowsze na górze (pamiętaj, że musisz mieć pole created_at w modelu!)
+        # Najnowsze na górze
         ideas = ideas.order_by('-created_at')
 
     # Agregacja statystyk globalnych
@@ -27,7 +27,7 @@ def idea_list(request):
 
 
 def idea_detail(request, pk):
-    # Pobieramy konkretny pomysł
+    # Pobieranie konkretnego pomysłu
     idea = get_object_or_404(Idea, pk=pk)
     can_vote = True
 
