@@ -3,6 +3,7 @@ from django.db.models import Count
 # Create your models here.
 
 class Idea(models.Model):
+    #verbose name to wyświetlenie np w formularzu zamiast 'title' - 'tytuł pomysłu'
     title = models.CharField(max_length=200, verbose_name="Tytuł pomysłu")
     description = models.TextField(verbose_name="Opis projektu")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -10,7 +11,7 @@ class Idea(models.Model):
 
     def __str__(self):
         return self.title
-
+    #licznik głosów
     def get_vote_count(self):
         return self.votes.count()
 

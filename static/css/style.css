@@ -31,7 +31,7 @@ body {
 
 .stats { background: #171923; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
 
-/* Dodaj to na końcu pliku style.css */
+
 input[type="text"], textarea {
     width: 100%;
     padding: 12px;
@@ -40,7 +40,7 @@ input[type="text"], textarea {
     border-radius: 4px;
     background-color: #1a202c;
     color: white;
-    box-sizing: border-box; /* Ważne, żeby pola nie wystawały za kartę */
+    box-sizing: border-box;
 }
 
 input:focus, textarea:focus {
